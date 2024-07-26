@@ -1,0 +1,729 @@
+:root {
+    --header: rgba(0, 0, 0, 0.7);
+    --Transparente: rgba(122, 114, 114, 0.658);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(/img/Diseño\ sin\ título.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: larger;
+}
+
+header {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: var(--header);
+    color: white;
+    box-shadow: 0px 8px 16px 0px rgba(212, 14, 14, 0.589);
+}
+
+.logo {
+    height: 70px;
+}
+
+.nav-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    /* Añadido para el z-index */
+    z-index: 1000;
+    /* Asegura que esté por encima de otros elementos */
+}
+
+.hamburger {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s;
+}
+
+.nav {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease;
+    width: 100%;
+    z-index: 999;
+    /* Asegura que el menú esté debajo del botón de menú hamburguesa */
+}
+
+.nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__item {
+    border-bottom: 1px solid #444;
+}
+
+.nav__item:last-child {
+    border-bottom: none;
+}
+
+.nav__link {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.nav__link:hover {
+    background: linear-gradient(to top, rgba(212, 14, 14, 0.337), rgba(255, 255, 0, 0));
+    border-radius: 10%;
+}
+
+.nav__link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    /* Ajusta el ancho del subrayado */
+    height: 1px;
+    background: linear-gradient(to right, rgba(255, 255, 0, 0.387), rgba(255, 255, 0, 0));
+    /* Degradado amarillo */
+    transition: width 0.3s;
+    z-index: -1;
+    /* Coloca el pseudo-elemento detrás del texto */
+}
+
+.nav__link:hover::after {
+    width: 100%;
+}
+
+.nav.show {
+    max-height: 200px;
+    /* Ajusta este valor según la altura total de tu menú */
+}
+
+@media (min-width: 601px) {
+
+
+    .nav {
+        position: static;
+        /* Elimina el posicionamiento absoluto */
+        display: flex;
+        /* Muestra el menú como un contenedor flexible */
+        align-items: center;
+        /* Centra los elementos verticalmente */
+        height: auto;
+        /* Ajusta la altura automáticamente */
+        max-height: none;
+        /* Elimina el límite de altura */
+        flex-direction: row;
+        /* Muestra los elementos en una fila */
+        justify-content: space-between;
+        /* Espacia los elementos */
+        background: none;
+        /* Elimina el fondo */
+        width: auto;
+        /* Ajusta el ancho automáticamente */
+
+        z-index: 1;
+        /* Asegura que el menú esté debajo del contenido superior */
+    }
+
+    .nav__list {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav__item {
+        border: none;
+        /* Elimina el borde inferior en pantallas grandes */
+    }
+
+    .nav__link {
+        padding: 10px 15px;
+        /* Ajusta el padding para pantallas grandes */
+    }
+}
+
+.container-info {
+    display: flex;
+    gap: 4rem;
+    /* Espacio entre los elementos */
+    padding: 0;
+}
+
+.h1-txt {
+    text-align: center;
+    -webkit-text-stroke: 0.2px orange;
+
+}
+
+.c-info {
+    height: auto;
+    text-align: center;
+    padding: 1rem;
+    height: 35rem;
+    width: 36rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    background-color: var(--Transparente);
+    box-shadow: 0px 8px 16px 0px rgba(212, 14, 14, 0.985);
+    margin-top: 2rem;
+    margin-left: 3rem;
+    border-radius: 5%;
+}
+
+.div-btn {
+    margin-top:2rem ;
+    margin-bottom: 2rem;
+}
+
+.button {
+    color: wheat;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 20px 40px;
+    margin-right: 30px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 50px;
+    margin-top: 2rem;
+    transition: all 0.90s linear;
+    -webkit-transition: all 0.20s linear;
+    -moz-transition: all 0.20s linear;
+    position: relative;
+    bottom: 0;
+}
+
+.azul {
+    background-color: var(--header);
+    background: linear-gradient(to right, rgb(249, 0, 0), rgba(255, 255, 0, 0));
+    box-shadow: 0px 5px 0 rgba(2, 14, 1, 0.876);
+    text-decoration: none;
+}
+
+.button:active {
+    bottom: -5px;
+}
+
+.azul:active {
+    box-shadow: 0 0 0 #0491a5, inset 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+.I-div {
+    height: 25em;
+    width: 35rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(104, 93, 93, 0.5);
+    margin-top: 2rem;
+    margin-left: 0.em;
+    border-radius: 5%;
+    box-shadow: 0px 8px 16px 0px rgba(212, 14, 14, 0.985);
+    padding-bottom: 2rem;
+    overflow: hidden;
+}
+
+h2 {
+    text-align: center;
+}
+
+section {
+    display: flex;
+    width: 600px;
+    height: 430px;
+}
+
+section img {
+    width: 0px;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .8;
+    transition: .5s ease;
+
+
+}
+
+.ult {
+    display: none;
+}
+
+
+section img:hover {
+    cursor: crosshair;
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%);
+}
+
+
+footer {
+    height: 11rem;
+    width: 100%;
+    display: flex;
+    background-color: var(--header);
+}
+
+.img-f {
+    height: 5rem;
+    width: auto;
+}
+
+.div-f {
+    height: auto;
+    width: 30rem;
+    margin: 7px;
+    display: flex;
+    align-items: center;
+}
+
+.div-f-2 {
+    height: auto;
+    width: 20rem;
+    margin: 10px;
+    text-align: center;
+}
+
+h1 {
+    color: #ffffff;
+}
+
+.srv-f {
+    color: #ffffff;
+    display: grid;
+    padding-top: 0.5rem;
+    text-decoration: none;
+}
+
+.div-f-3 {
+    height: auto;
+    width: 20rem;
+    margin: 10px;
+}
+
+.redes {
+    width: 32rem;
+    align-self: flex-end;
+    text-align: right;
+}
+
+.lg {
+    width: 4rem;
+    height: 4rem;
+}
+
+.card-container {
+    display: none;
+}
+
+.floating-btn {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 1000; /* Asegura que el botón esté siempre por encima del contenido */
+}
+
+.floating-btn i {
+    font-size: 24px;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+
+
+.social-icons {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.social-icons a {
+    margin: 10px 0;
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: #333;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.floating-btn.open .social-icons {
+    opacity: 1;
+    visibility: visible;
+}
+
+ 
+
+/* PANTALLA COMPLETA */
+@media (min-width: 1024px) {
+    .celu {
+        display: none;
+    }
+
+    .menu-container {
+        display: none;
+    }
+
+    .card {
+        display: none;
+    }
+
+    .img-info {
+        display: none;
+    }
+
+    .hamburger {
+        display: none;
+    }
+    .floating-btn{display: none;}
+    .card,.card-content{
+        display: none;
+    }
+    .img-info{
+        display: none;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .nav {
+        position: fixed;
+        top: 60px;
+        right: 10px;
+        background-color: var(--header);
+        box-shadow: 0px 8px 16px 0px rgba(157, 11, 3, 0.985);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+        width: 80%;
+    }
+
+
+
+    .nav.show {
+        max-height: 300px;
+        /* Ajusta según la altura total del menú */
+
+    }
+
+    .nav-toggle {
+
+        display: flex;
+    }
+
+    .hamburger {
+        background-color: white;
+        box-shadow: 0px 8px 16px 0px rgba(157, 11, 3, 0.985);
+
+    }
+
+    header {
+        flex-direction: row;
+        box-shadow: 0px 8px 16px 0px rgba(157, 11, 3, 0.985);
+        width: auto;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .container-info {
+        flex-direction: column;
+        padding: 0.5em;
+    }
+
+    .c-info {
+        width: 100%;
+        margin: 0;
+        height: auto;
+        overflow: hidden;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        overflow: hidden;
+    }
+
+    section {
+        display: none;
+
+    }
+
+    .I-div {
+        width: auto;
+        height: 40rem;
+    }
+
+    .div-img {
+        width: auto;
+        height: 20rem;
+
+    }
+
+    .img-info {
+        width: 100%;
+        height: 20rem;
+        padding: 1rem;
+    }
+
+
+
+    .card {
+        width: auto;
+        height: 20rem;
+
+    }
+
+    /* ICONOS PARA DISPOSITIVOS */
+    .icn {
+        width: 5rem;
+        height: auto;
+    }
+
+    .icono,.icono2,.icono3 {
+        width: auto;
+        height: auto;
+        display: flex;
+        padding-top: 1rem;
+
+    }
+
+    .txt {
+        width: 20rem;
+        height: auto;
+        overflow: hidden;
+        padding-left: 1rem;
+    }
+
+    .icn {
+        align-self: center;
+        padding-left: 1rem;
+    }
+
+
+    /* -----FOOTER--------- */
+    .div-f-2{
+        display: none;
+    }
+
+
+
+
+
+.div-f{
+    padding-left: 10rem;
+}
+
+strong{
+    padding-left: 2.5rem;
+}
+
+.redes{display: none;}
+
+/* boton flotante */
+
+  .floating-btn {
+        width: 50px;
+        height: 50px;
+    }
+
+    .floating-btn i {
+        font-size: 20px;
+    }
+
+    .social-icons a {
+        width: 40px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+
+
+
+
+}
+/* PARA TABLE */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .nav {
+        position: fixed;
+        top: 60px;
+        right: 10px;
+        background-color: var(--header);
+        box-shadow: 0px 8px 16px 0px rgba(157, 11, 3, 0.985);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+        width: 70%; /* Ajusta según sea necesario */
+    }
+
+    .nav.show {
+        max-height: 400px; /* Ajusta según la altura total del menú */
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .hamburger {
+        background-color: white;
+        box-shadow: 0px 8px 16px 0px rgba(157, 11, 3, 0.985);
+    }
+
+    header {
+        flex-direction: row;
+        box-shadow: 0px 8px 16px 0px rgba(157, 11, 3, 0.985);
+        width: auto;
+    }
+
+    .logo {
+        margin-bottom: 15px; /* Ajusta según sea necesario */
+    }
+
+    .container-info {
+        flex-direction: column;
+        padding: 1em;
+    }
+
+    .c-info {
+        width: 100%;
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        
+    }
+
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        overflow: hidden;
+    }
+
+    section {
+        display: none;
+    }
+
+    .I-div {
+        width: auto;
+        height: 40rem;
+    }
+
+    .div-img {
+        width: auto;
+        height: 20rem;
+    }
+
+    .img-info {
+        width: 100%;
+        height: 20rem;
+        padding: 1rem;
+    }
+
+    .card {
+        width: auto;
+        height: 20rem;
+    }
+
+ 
+  
+    #logo {
+        font-size: 5rem; /* Aumenta el tamaño del ícono */
+     
+    }
+    
+    
+
+    .icono, .icono2, .icono3 {
+        width: auto;
+        height: auto;
+        display: flex;
+        padding-top: 5rem;
+    }
+
+    .txt {
+        height: auto;
+       overflow: hidden;
+        padding-left: 1rem;
+    }
+
+    .icn {
+        align-self: center;
+        padding-left: 1rem;
+    }
+
+    .div-f-2 {
+        display: none;
+    }
+
+    .div-f {
+        padding-left: 10rem;
+    }
+
+    strong {
+        padding-left: 2.5rem;
+    }
+
+    .redes {
+        display: none;
+    }
+
+    .floating-btn {
+        width: 50px;
+        height: 50px;
+    }
+
+    .floating-btn i {
+        font-size: 20px;
+    }
+
+    .social-icons a {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+}
